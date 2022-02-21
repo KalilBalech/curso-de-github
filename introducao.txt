@@ -39,3 +39,5 @@ para descartar diferença entre ele e a cópia dele que está no unmodified.
 Para commitar os arquivos prontos para ser commitados (unmodified) basta rodar o seguinte comando:
 
 git commit -m "Mensagem de indentificação e descrição do commit"
+
+Cada insertion contabilizada foi uma linha escrita salva
