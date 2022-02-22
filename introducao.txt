@@ -11,6 +11,8 @@ O github é o serviço web dos projetos versionados pelo git
 git !== github
 O github é o serviço web do git que permite tabém compartilhamento de arquivos e projetos entre as pessoas
 
+-----------------------------------------------
+
 COMANDOS:
 
 git init -> esse comando deve ser executado quando se está no diretório cujos arquivos devem ser salvos no git
@@ -23,7 +25,7 @@ As situações dos arquivos/ciclo de vida dos status dos seus arquivos são:
 untracked -> o arquivo existe, mas o Git ainda não sabe da existência dele. Tá no diretório mas não foi mandado pro Git ainda.
 unmodified -> O git sabe de sua existência e pode ser commitado, pois não foi modificado depois do git saber da sua existência
 modified -> O git sabe da sua existência, mas é um arquivo modificado
-stage -> 
+staged -> é o status do arquivo que já foi commitado e ainda não foi mudado
 
 para transformar um arquivo untracked num arquivo unmodified, basta fazer:
 
@@ -36,8 +38,80 @@ git restore <nome do arquivo modified>
 
 para descartar diferença entre ele e a cópia dele que está no unmodified.
 
+Caso você tenha feito uma mudança num arquivo e teha feito git add nele, para você desfazer essa mudança, basta rodar o comando:
+
+git reset HEAD <nome do arquivo>*
+
 Para commitar os arquivos prontos para ser commitados (unmodified) basta rodar o seguinte comando:
 
 git commit -m "Mensagem de indentificação e descrição do commit"
 
 Cada insertion contabilizada foi uma linha escrita salva
+
+Para descomitar um arquivo, temos 3 opções
+
+git reset --soft <código hash do ultimo commit que queremos que permaneça>
+esse comando remove o outro commit, mas o arquivo comitado retorna como unmodified
+
+git reset --mixed <código hash do ultimo commit que queremos que permaneça>
+esse comando remove o outro commit, mas o arquivo commitao retorna como modified
+
+git reset --hard <código hash do ultimo commit que queremos que permaneça>
+esse comando remove o outro commit e o arquivo commitado desaparece
+
+-----------------------------------------------
+
+Outro comando:
+
+git log
+
+Esse comando mostra quais commits foram realizados e por quem foram realizados
+
+git log --decorate
+
+Mostra os commits feitos com uns detalhezinhos a mais
+
+git log --author="Kalil" 
+
+Mostra dos os commit feitos por pessoas que tenham "Kalil" no nome
+
+git shortlog
+
+Mostra uma versão simplificada dos commits que já foram feitos
+
+git shortlog -sn
+
+Mostra uma versão mais simplificada ainda dos commits que ja foram feitos
+
+git log graph
+
+Mostra de maneira gráfica os commits feitos
+
+git show <código hash do commit>
+
+Mostra detalhadamente o que o commit com tal código hash fez 
+
+-----------------------------------------------
+
+git diff
+
+Esse comando é usado para rever as mudanças feitas num arquivo modified antes de dar commit nele. É bom revisar
+
+git diff --name-only
+
+Esse comando mostra apenas o nome dos arquivos que receberam mudanças
+
+git commit -am "mensagem de descrição"
+
+Esse comando pode ser usado quando daremos commit num arquivo modified de já foi commitado anteriormente
+Esse comando realiza o add e o commit de uma vez
+
+---------------------------------------------------
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+Esse comando é responsável por gerar uma chave ssh
+
+copie essa chave no arquivo correspondente que ficará em ~/.ssh e relacione-a em seu repositório
+
+Depois conect o seu git local com o seu github 
