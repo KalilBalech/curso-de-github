@@ -115,3 +115,8 @@ Esse comando é responsável por gerar uma chave ssh
 copie essa chave no arquivo correspondente que ficará em ~/.ssh e relacione-a em seu repositório
 
 Depois conect o seu git local com o seu github 
+
+Após feito isso, mande os arquivos commitados localmente para o github através do comando
+
+git push <local de destino/nome do seu repositorio dado pelo git> <nome de onde você está>
+git push origin master
